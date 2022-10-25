@@ -47,6 +47,11 @@ python setup.py develop
 cd hand_imitation
 python setup.py develop
 cd ..
+
+cd dapg/dapg/demonstrations/
+pip install gdown
+sh ./download.sh
+cd ../../../
 ```
 
 3. The file structure is listed as follows:
