@@ -1,0 +1,10 @@
+ENV_NAME: shapenet_pointcloud-mug-0.8
+JOB_DIR: /data/kriswu/kris-rl/
+NUM_ITER: 2000
+NUM_TRAJ: 200
+POLICY_INIT_LOG_STD: 0.0
+POLICY_WS:
+- 32
+- 32
+RNG_SEED: 300
+SAVE_FREQ: 100

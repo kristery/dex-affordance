@@ -1,0 +1,17 @@
+name: hand-imitation
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  ########## Feel Free to Modify The Following Packages ##########
+  - python=3.7
+  - numpy
+  - transforms3d
+  - imageio
+  - Pillow
+  - scipy
+  - pip:
+      - open3d
+      - opencv-python
+      - loguru
+      - mujoco-py

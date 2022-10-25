@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ "Hand Imitation Data Visualizer"}} {% endblock %}
+
+{% block content %}
+<div class="container" style="width:100%;">
+
+    <nav class="navbar">
+        <div class="navbar-header">
+
+            <span class="navbar-brand">{{ config.APPNAME }}</span>
+        </div>
+        <form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
+            <div class="form-group">
+                <input type="text" name="index" class="form-control" placeholder="Go to relative path">
+            </div>
+            <button type="Go" class="btn btn-default">Go</button>
+        </form>
+        <ul class="nav navbar-nav">
+            <li><a href="/">home</a></li>
+            <li><a href="/{{parent_dir}}">&larr;</a></li>
+        </ul>
+    </nav>
+
+    <h3>Relative Path:{{dir_name}}</h3>
+
+    {% for data_cell in data_cells %}
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename=data_cell.image) }}" class="img-responsive center-block"
+                 style="width:30%;">
+            <br>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <h2>{{data_cell.name}}</h2>
+            {% include 'raw_image_table.html' %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for file_dir in file_dirs %}
+    <div>
+        <li><a href="/{{file_dir}}">"{{file_dir}}"</a></li>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

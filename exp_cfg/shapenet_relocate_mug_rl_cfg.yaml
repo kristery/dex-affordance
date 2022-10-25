@@ -1,0 +1,16 @@
+ENV_NAME: shapenet_pointcloud-mug-0.8
+FT_INTERVAL: 20
+JOB_DIR: /data/kriswu/kris-rl/
+JOB_NAME: ilad_rl_exp
+LFA_LAM0: 0.1
+LFA_LAM1: 0.99
+LFA_LAM2: 0.99
+LFA_LAM3: 0.001
+NUM_ITER: 1500
+NUM_TRAJ: 200
+POLICY_INIT_LOG_STD: 0.0
+POLICY_WS:
+- 32
+- 32
+RNG_SEED: 500
+SAVE_FREQ: 100

@@ -1,0 +1,11 @@
+<table class="table table-striped" style="width:30%">
+  <tbody>
+    {% for key in ["task", "object", "camera", "sequence"] %}
+    <tr>
+      <td><b>{{ key|e|capitalize }}</b></td>
+      <td>{{ data_cell.__getattribute__(key)|e }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

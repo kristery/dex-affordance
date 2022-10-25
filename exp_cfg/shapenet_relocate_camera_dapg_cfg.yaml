@@ -1,0 +1,23 @@
+BC_INIT: true
+DAPG_BASELINE: true
+DAPG_LAM0: 0.1
+DAPG_LAM1: 0.99
+DEMO_FILE: dapg/dapg/demonstrations/shapenet_pointcloud_camera_traj_0.8_new_select.pkl
+ENV_NAME: shapenet_pointcloud-camera-0.8
+FT_INTERVAL: 20
+JOB_DIR: /data/kriswu/kris-rl/
+JOB_NAME: ilad_dapg_exp
+LFA_EVAL_ADV: false
+LFA_LAM0: 0.1
+LFA_LAM1: 0.99
+LFA_LAM2: 0.99
+LFA_LAM3: 0.001
+NUM_ITER: 1500
+NUM_TRAJ: 200
+POLICY_INIT_LOG_STD: 0.0
+POLICY_WS:
+- 32
+- 32
+RNG_SEED: 500
+SAVE_FREQ: 100
+USE_LFA: true

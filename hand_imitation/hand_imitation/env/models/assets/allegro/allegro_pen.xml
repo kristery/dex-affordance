@@ -1,0 +1,353 @@
+<mujoco model="allegro_hand_right">
+  <compiler angle="radian"/>
+  <option apirate="200" iterations="20" noslip_iterations="20" cone="elliptic"/>
+  <size njmax="2000" nconmax="500" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1"
+        nuser_actuator="16" nuser_sensor="1"/>
+  <default class="main">
+    <default class="collision">
+      <geom conaffinity="0" group="4" friction="1 0.5 0.01" margin="0.0005" condim="4"/>
+    </default>
+    <default class="visual">
+      <geom type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" friction="1 0.5 0.01"
+            margin="0.0005"/>
+    </default>
+  </default>
+  <asset>
+    <material name="MatViz" specular="0.75" shininess="0.1" reflectance="0.5" rgba="0.2 0.2 0.2 1"/>
+    <mesh file="meshes/base_link.STL" name="base_link" scale="1 1 1"/>
+    <mesh file="meshes/link_0.0.STL" name="link0" scale="1 1 1"/>
+    <mesh file="meshes/link_1.0.STL" name="link1" scale="1 1 1"/>
+    <mesh file="meshes/link_2.0.STL" name="link2" scale="1 1 1"/>
+    <mesh file="meshes/link_3.0.STL" name="link3" scale="1 1 1"/>
+    <mesh file="meshes/link_13.0.STL" name="link13" scale="1 1 1"/>
+    <mesh file="meshes/link_14.0.STL" name="link14" scale="1 1 1"/>
+    <mesh file="meshes/link_15.0.STL" name="link15" scale="1 1 1"/>
+    <mesh file="meshes/link_12.0_right.STL" name="link12_right" scale="1 1 1"/>
+    <mesh file="meshes/link_3.0_tip.STL" name="link3_tip" scale="1 1 1"/>
+    <mesh file="meshes/link_15.0_tip.STL" name="link15_tip" scale="1 1 1"/>
+  </asset>
+  <worldbody>
+    <body name="forearm" pos="0 -0.7 0.2" quat="0.5 -0.5 0.5 0.5">
+      <inertial pos="0.001 -0.002 0.29" quat="0.982037 -0.0160006 0 -0.188007" mass="4" diaginertia="0.01 0.01 0.0075"/>
+      <site name="S_grasp" pos="0 0 0" type="sphere" size="0.01" rgba="0 0 0 0"/>
+      <body name="base_link" pos="0.0098 0.0 0.395" quat="0 0 0 1">
+        <joint name="ARRx" pos="0 0 0" axis="1 0 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+               armature="0.001" frictionloss="0.001"/>
+        <joint name="ARRy" pos="0 0 0" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+               armature="0.001" frictionloss="0.001"/>
+        <geom class="collision" size="0.0204 0.0565 0.0475" pos="-0.0093 0 -0.0475" type="box" rgba="0.2 0.2 0.2 1"/>
+        <geom class="visual" mesh="base_link" rgba="0.2 0.2 0.2 1"/>
+        <body name="link_0.0" pos="0 0.0435 -0.001542" quat="0.999048 -0.0436194 0 0">
+          <inertial pos="0 0 0.0082" mass="0.0088396" diaginertia="7.55204e-07 4.8111e-07 8.40064e-07"/>
+          <joint name="joint_0.0" pos="0 0 0" axis="0 0 1" limited="true" range="-0.47 0.47" margin="0.01"
+                 armature="0.001" damping="0.05" frictionloss="0.001"/>
+          <geom class="collision" size="0.0098 0.01375 0.0082" pos="0 0 0.0082" type="box"/>
+          <geom class="visual" mesh="link0" rgba="0.2 0.2 0.2 1"/>
+          <body name="link_1.0" pos="0 0 0.0164">
+            <inertial pos="0 0 0.027" mass="0.029106" diaginertia="8.90704e-06 8.00454e-06 2.76606e-06"/>
+            <joint name="joint_1.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.196 1.61" margin="0.01"
+                   armature="0.001" damping="0.05" frictionloss="0.001"/>
+            <geom class="collision" size="0.0098 0.01375 0.027" pos="0 0 0.027" type="box"/>
+            <geom class="visual" mesh="link1" rgba="0.2 0.2 0.2 1"/>
+            <body name="link_2.0" pos="0 0 0.054">
+              <inertial pos="0 0 0.0192" mass="0.0206976" diaginertia="3.8477e-06 3.20592e-06 1.96698e-06"/>
+              <joint name="joint_2.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.174 1.709" margin="0.01"
+                     armature="0.001" damping="0.05" frictionloss="0.001"/>
+              <geom class="collision" size="0.0098 0.01375 0.0192" pos="0 0 0.0192" type="box"/>
+              <geom class="visual" mesh="link2" rgba="0.2 0.2 0.2 1"/>
+              <body name="link_3.0" pos="0 0 0.0384">
+                <inertial pos="0 0 0.0178175" mass="0.0216295"
+                          diaginertia="3.03714e-06 2.5909e-06 1.78459e-06"/>
+                <joint name="joint_3.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.227 1.618" margin="0.01"
+                       armature="0.001" damping="0.05" frictionloss="0.001"/>
+                <geom class="collision" size="0.0098 0.01375 0.01335" pos="0 0 0.01335" type="box"/>
+                <geom class="visual" mesh="link3" rgba="0.2 0.2 0.2 1"/>
+                <body name="link_3.0_tip" pos="0 0 0.0267">
+                  <geom class="collision" size="0.012"/>
+                  <geom class="visual" mesh="link3_tip" rgba="0.9 0.9 0.9 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="link_4.0" pos="0 0 0.0007">
+          <inertial pos="0 0 0.0082" mass="0.0088396" diaginertia="7.55204e-07 4.8111e-07 8.40064e-07"/>
+          <joint name="joint_4.0" pos="0 0 0" axis="0 0 1" limited="true" range="-0.47 0.47" margin="0.01"
+                 armature="0.001" damping="0.05" frictionloss="0.001"/>
+          <geom class="collision" size="0.0098 0.01375 0.0082" pos="0 0 0.0082" type="box"/>
+          <geom class="visual" mesh="link0" rgba="0.2 0.2 0.2 1"/>
+          <body name="link_5.0" pos="0 0 0.0164">
+            <inertial pos="0 0 0.027" mass="0.029106" diaginertia="8.90704e-06 8.00454e-06 2.76606e-06"/>
+            <joint name="joint_5.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.196 1.61" margin="0.01"
+                   armature="0.001" damping="0.05" frictionloss="0.001"/>
+            <geom class="collision" size="0.0098 0.01375 0.027" pos="0 0 0.027" type="box" rgba="0.2 0.2 0.2 1"/>
+            <geom class="visual" mesh="link1" rgba="0.2 0.2 0.2 1"/>
+            <body name="link_6.0" pos="0 0 0.054">
+              <inertial pos="0 0 0.0192" mass="0.0206976" diaginertia="3.8477e-06 3.20592e-06 1.96698e-06"/>
+              <joint name="joint_6.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.174 1.709" margin="0.01"
+                     armature="0.001" damping="0.05" frictionloss="0.001"/>
+              <geom class="collision" size="0.0098 0.01375 0.0192" pos="0 0 0.0192" type="box" rgba="0.2 0.2 0.2 1"/>
+              <geom class="visual" mesh="link2" rgba="0.2 0.2 0.2 1"/>
+              <body name="link_7.0" pos="0 0 0.0384">
+                <inertial pos="0 0 0.0178175" mass="0.0216295"
+                          diaginertia="3.03714e-06 2.5909e-06 1.78459e-06"/>
+                <joint name="joint_7.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.227 1.618" margin="0.01"
+                       armature="0.001" damping="0.05" frictionloss="0.001"/>
+                <geom class="collision" size="0.0098 0.01375 0.01335" pos="0 0 0.01335" type="box"
+                      rgba="0.2 0.2 0.2 1"/>
+                <geom class="visual" mesh="link3" rgba="0.2 0.2 0.2 1"/>
+                <body name="link_7.0_tip" pos="0 0 0.0267">
+                  <geom class="collision" size="0.012"/>
+                  <geom class="visual" mesh="link3_tip" rgba="0.9 0.9 0.9 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="link_8.0" pos="0 -0.0435 -0.001542" quat="0.999048 0.0436194 0 0">
+          <inertial pos="0 0 0.0082" mass="0.0088396" diaginertia="7.55204e-07 4.8111e-07 8.40064e-07"/>
+          <joint name="joint_8.0" pos="0 0 0" axis="0 0 1" limited="true" range="-0.47 0.47" margin="0.01"
+                 armature="0.001" damping="0.05" frictionloss="0.001"/>
+          <geom class="collision" size="0.0098 0.01375 0.0082" pos="0 0 0.0082" type="box" rgba="0.2 0.2 0.2 1"/>
+          <geom class="visual" mesh="link0" rgba="0.2 0.2 0.2 1"/>
+          <body name="link_9.0" pos="0 0 0.0164">
+            <inertial pos="0 0 0.027" mass="0.029106" diaginertia="8.90704e-06 8.00454e-06 2.76606e-06"/>
+            <joint name="joint_9.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.196 1.61" margin="0.01"
+                   armature="0.001" damping="0.05" frictionloss="0.001"/>
+            <geom class="collision" size="0.0098 0.01375 0.027" pos="0 0 0.027" type="box" rgba="0.2 0.2 0.2 1"/>
+            <geom class="visual" mesh="link1" rgba="0.2 0.2 0.2 1"/>
+            <body name="link_10.0" pos="0 0 0.054">
+              <inertial pos="0 0 0.0192" mass="0.0206976" diaginertia="3.8477e-06 3.20592e-06 1.96698e-06"/>
+              <joint name="joint_10.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.174 1.709" margin="0.01"
+                     armature="0.001" damping="0.05" frictionloss="0.001"/>
+              <geom class="collision" size="0.0098 0.01375 0.0192" pos="0 0 0.0192" type="box" rgba="0.2 0.2 0.2 1"/>
+              <geom class="visual" mesh="link2" rgba="0.2 0.2 0.2 1"/>
+              <body name="link_11.0" pos="0 0 0.0384">
+                <inertial pos="0 0 0.0178175" mass="0.0216295"
+                          diaginertia="3.03714e-06 2.5909e-06 1.78459e-06"/>
+                <joint name="joint_11.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.227 1.618" margin="0.01"
+                       armature="0.001" damping="0.05" frictionloss="0.001"/>
+                <geom class="collision" size="0.0098 0.01375 0.01335" pos="0 0 0.01335" type="box"
+                      rgba="0.2 0.2 0.2 1"/>
+                <geom class="visual" mesh="link3" rgba="0.2 0.2 0.2 1"/>
+                <body name="link_11.0_tip" pos="0 0 0.0267">
+                  <geom class="collision" size="0.012"/>
+                  <geom class="visual" mesh="link3_tip" rgba="0.9 0.9 0.9 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="link_12.0" pos="-0.0182 0.019333 -0.045987" quat="0.477714 -0.521334 -0.521334 -0.477714">
+          <inertial pos="-0.0179 0.009 0.0145" mass="0.0553826" diaginertia="1.48898e-05 1.54697e-05 1.12502e-05"/>
+          <joint name="joint_12.0" pos="0 0 0" axis="-1 0 0" limited="true" range="0.263 1.396" margin="0.01"
+                 armature="0.001" damping="0.05" frictionloss="0.001"/>
+          <geom class="collision" size="0.0179 0.017 0.02275" pos="-0.0179 0.009 0.0145" type="box"
+                rgba="0.2 0.2 0.2 1"/>
+          <geom class="visual" mesh="link12_right" rgba="0.2 0.2 0.2 1"/>
+          <body name="link_13.0" pos="-0.027 0.005 0.0399">
+            <inertial pos="0 0 0.00885" mass="0.0095403" diaginertia="8.50311e-07 5.5449e-07 9.06654e-07"/>
+            <joint name="joint_13.0" pos="0 0 0" axis="0 0 1" limited="true" range="-0.105 1.163" margin="0.01"
+                   armature="0.001" damping="0.05" frictionloss="0.001"/>
+            <geom class="collision" size="0.0098 0.01375 0.00885" pos="0 0 0.00885" type="box" rgba="0.2 0.2 0.2 1"/>
+            <geom class="visual" mesh="link13" rgba="0.2 0.2 0.2 1"/>
+            <body name="link_14.0" pos="0 0 0.0177">
+              <inertial pos="0 0 0.0257" mass="0.0277046" diaginertia="7.8455e-06 6.98645e-06 2.63288e-06"/>
+              <joint name="joint_14.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.189 1.644" margin="0.01"
+                     armature="0.001" damping="0.05" frictionloss="0.001"/>
+              <geom class="collision" size="0.0098 0.01375 0.0257" pos="0 0 0.0257" type="box" rgba="0.2 0.2 0.2 1"/>
+              <geom class="visual" mesh="link14" rgba="0.2 0.2 0.2 1"/>
+              <body name="link_15.0" pos="0 0 0.0514">
+                <inertial pos="0 0 0.0262465" mass="0.0300379"
+                          diaginertia="7.71099e-06 7.00403e-06 2.58367e-06"/>
+                <joint name="joint_15.0" pos="0 0 0" axis="0 1 0" limited="true" range="-0.162 1.719" margin="0.01"
+                       armature="0.001" damping="0.05" frictionloss="0.001"/>
+                <geom class="collision" size="0.0098 0.01375 0.02115" pos="0 0 0.02115" type="box"
+                      rgba="0.2 0.2 0.2 1"/>
+                <geom class="visual" mesh="link15" rgba="0.2 0.2 0.2 1"/>
+                <body name="link_15.0_tip" pos="0 0 0.0423">
+                  <geom class="collision" size="0.012"/>
+                  <geom class="visual" mesh="link15_tip" rgba="0.9 0.9 0.9 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <site name="eps_ball" type="sphere" pos="0.0 -0.2 0.25" size="0.075" rgba="0 0 0 0"/>
+    <body name="Object" pos="-0.00 -0.2 0.25" user="1001 0 2003 27 0 0 0.06 0 0" euler="0 1.57 0">
+      <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" limited="false" damping="0" margin="0.01"
+             armature="0.001" frictionloss="0.001"/>
+      <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" limited="false" damping="0" margin="0.01"
+             armature="0.001" frictionloss="0.001"/>
+      <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" limited="false" damping="0" margin="0.01"
+             armature="0.001" frictionloss="0.001"/>
+      <joint name="OBJRx" pos="0 0 0" axis="1 0 0" limited="false" damping="0" margin="0.01" armature="0.001"
+             frictionloss="0.001"/>
+      <joint name="OBJRy" pos="0 0 0" axis="0 1 0" limited="false" damping="0" margin="0.01" armature="0.001"
+             frictionloss="0.001"/>
+      <joint name="OBJRz" pos="0 0 0" axis="0 0 1" limited="false" damping="0" margin="0.01" armature="0.001"
+             frictionloss="0.001"/>
+      <geom name="pen" type="cylinder" size="0.015 0.065" condim="4" rgba=".6 .6 .6 .6" density="1500"
+            friction="1 0.5 0.01" margin="0.0005"/>
+      <geom name="top" type="cylinder" size="0.017 0.020" condim="4" pos="0 0 -.0455" rgba="0 .5 1 1" contype="0"
+            conaffinity="0"/>
+      <geom name="bot" type="cylinder" size="0.013 0.002" pos="0 0 0.067" rgba="0 .5 1 1" contype="0" conaffinity="0"/>
+      <geom name="cli" type="box" size="0.004 0.006 0.03" pos="-.015 0 -.0255" rgba="0 .5 1 1" contype="0"
+            conaffinity="0"/>
+
+      <site name="object_top" type="sphere" size="0.005" rgba="0.8 0.2 0.2 0" pos="0 0 0.065"/>
+      <site name="object_bottom" type="sphere" size="0.005" rgba="0.2 0.8 0.2 0" pos="0 0 -0.065"/>
+    </body>
+
+    <body name="target" pos="0.2 -0.2 0.25">
+      <site name="target_top" type="sphere" size="0.005" rgba="0.8 0.2 0.2 0" pos="0 0 0.065"/>
+      <site name="target_bottom" type="sphere" size="0.005" rgba="0.2 0.8 0.2 0" pos="0 0 -0.065"/>
+
+      <geom name="target" type="cylinder" size="0.015 0.065" condim="4" rgba=".6 .6 .6 .3"/>
+      <geom name="t_top" type="cylinder" size="0.017 0.020" condim="4" pos="0 0 -.0455" rgba="0 1 .5 1" contype="0"
+            conaffinity="0"/>
+      <geom name="t_bot" type="cylinder" size="0.013 0.002" pos="0 0 0.067" rgba="0 1 .5 1" contype="0"
+            conaffinity="0"/>
+      <geom name="t_cli" type="box" size="0.004 0.006 0.03" pos="-.015 0 -.0255" rgba="0 1 .5 1" contype="0"
+            conaffinity="0"/>
+    </body>
+  </worldbody>
+  <tendon>
+    <fixed name="T_0r" range="-0.018 0.018" user="1210" limited="true">
+      <joint joint="joint_0.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_0l" range="-0.018 0.018" user="1211" limited="true">
+      <joint joint="joint_0.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_1u" range="-0.007 0.03" user="1208" limited="true">
+      <joint joint="joint_1.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_1d" range="-0.03 0.007" user="1209" limited="true">
+      <joint joint="joint_1.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_2c" range="-0.001 0.001" limited="true">
+      <joint joint="joint_3.0" coef="0.00705"/>
+      <joint joint="joint_2.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_2u" range="-0.007 0.03" user="1206" limited="true">
+      <joint joint="joint_3.0" coef="0.00705"/>
+      <joint joint="joint_2.0" coef="0.00805"/>
+    </fixed>
+    <fixed name="T_2d" range="-0.03 0.007" user="1207" limited="true">
+      <joint joint="joint_3.0" coef="-0.00705"/>
+      <joint joint="joint_2.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_4r" range="-0.018 0.018" user="1210" limited="true">
+      <joint joint="joint_4.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_4l" range="-0.018 0.018" user="1211" limited="true">
+      <joint joint="joint_4.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_5u" range="-0.007 0.03" user="1208" limited="true">
+      <joint joint="joint_5.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_5d" range="-0.03 0.007" user="1209" limited="true">
+      <joint joint="joint_5.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_6c" range="-0.001 0.001" limited="true">
+      <joint joint="joint_7.0" coef="0.00705"/>
+      <joint joint="joint_6.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_6u" range="-0.007 0.03" user="1206" limited="true">
+      <joint joint="joint_7.0" coef="0.00705"/>
+      <joint joint="joint_6.0" coef="0.00805"/>
+    </fixed>
+    <fixed name="T_6d" range="-0.03 0.007" user="1207" limited="true">
+      <joint joint="joint_7.0" coef="-0.00705"/>
+      <joint joint="joint_6.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_8r" range="-0.018 0.018" user="1210" limited="true">
+      <joint joint="joint_8.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_8l" range="-0.018 0.018" user="1211" limited="true">
+      <joint joint="joint_8.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_9u" range="-0.007 0.03" user="1208" limited="true">
+      <joint joint="joint_9.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_9d" range="-0.03 0.007" user="1209" limited="true">
+      <joint joint="joint_9.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_10c" range="-0.001 0.001" limited="true">
+      <joint joint="joint_11.0" coef="0.00705"/>
+      <joint joint="joint_10.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_10u" range="-0.007 0.03" user="1206" limited="true">
+      <joint joint="joint_11.0" coef="0.00705"/>
+      <joint joint="joint_10.0" coef="0.00805"/>
+    </fixed>
+    <fixed name="T_10d" range="-0.03 0.007" user="1207" limited="true">
+      <joint joint="joint_11.0" coef="-0.00705"/>
+      <joint joint="joint_10.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_12r" range="-0.018 0.018" user="1210" limited="true">
+      <joint joint="joint_12.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_12l" range="-0.018 0.018" user="1211" limited="true">
+      <joint joint="joint_12.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_13u" range="-0.007 0.03" user="1208" limited="true">
+      <joint joint="joint_13.0" coef="0.01"/>
+    </fixed>
+    <fixed name="T_13d" range="-0.03 0.007" user="1209" limited="true">
+      <joint joint="joint_13.0" coef="-0.01"/>
+    </fixed>
+    <fixed name="T_14c" range="-0.001 0.001" limited="true">
+      <joint joint="joint_15.0" coef="0.00705"/>
+      <joint joint="joint_14.0" coef="-0.00805"/>
+    </fixed>
+    <fixed name="T_14u" range="-0.007 0.03" user="1206" limited="true">
+      <joint joint="joint_15.0" coef="0.00705"/>
+      <joint joint="joint_14.0" coef="0.00805"/>
+    </fixed>
+    <fixed name="T_14d" range="-0.03 0.007" user="1207" limited="true">
+      <joint joint="joint_15.0" coef="-0.00705"/>
+      <joint joint="joint_14.0" coef="-0.00805"/>
+    </fixed>
+  </tendon>
+  <actuator>
+    <general biasprm="0 -20 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
+             gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"/>
+    <general biasprm="0 -20 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
+             gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.47 0.47"
+             joint="joint_0.0" name="A_joint_0.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.196 1.61"
+             joint="joint_1.0" name="A_joint_1.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.174 1.709"
+             joint="joint_2.0" name="A_joint_2.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.227 1.618"
+             joint="joint_3.0" name="A_joint_3.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.47 0.47"
+             joint="joint_4.0" name="A_joint_4.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.196 1.61"
+             joint="joint_5.0" name="A_joint_5.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.174 1.709"
+             joint="joint_6.0" name="A_joint_6.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.227 1.618"
+             joint="joint_7.0" name="A_joint_7.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.47 0.47"
+             joint="joint_8.0" name="A_joint_8.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.196 1.61"
+             joint="joint_9.0" name="A_joint_9.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.174 1.709"
+             joint="joint_10.0" name="A_joint_10.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.227 1.618"
+             joint="joint_11.0" name="A_joint_11.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0.263 1.396"
+             joint="joint_12.0" name="A_joint_12.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.105 1.163"
+             joint="joint_13.0" name="A_joint_13.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.189 1.644"
+             joint="joint_14.0" name="A_joint_14.0"/>
+    <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.162 1.719"
+             joint="joint_15.0" name="A_joint_15.0"/>
+  </actuator>
+</mujoco>

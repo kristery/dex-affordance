@@ -1,0 +1,18 @@
+BC_INIT: true
+DAPG_BASELINE: true
+LFA_EVAL_ADV: false
+DAPG_LAM0: 0.1
+DAPG_LAM1: 0.99
+DEMO_FILE: dapg/dapg/demonstrations/pouring_demonstrations.pkl
+ENV_NAME: shapenet_pouring-mug-1.0
+JOB_DIR: /data/kriswu/kris-rl
+JOB_NAME: ilad_dapg_exp
+NUM_ITER: 3000
+NUM_TRAJ: 200
+POLICY_INIT_LOG_STD: 0.0
+POLICY_WS:
+- 32
+- 32
+RNG_SEED: 500
+SAVE_FREQ: 100
+USE_LFA: true
