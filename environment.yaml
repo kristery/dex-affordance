@@ -1,4 +1,4 @@
-name: soil
+name: ilad
 channels:
   - pytorch
   - defaults
