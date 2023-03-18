@@ -38,7 +38,7 @@ git clone https://github.com/kristery/Learning-Generalizable-Dexterous-Manipulat
 cd Learning-Generalizable-Dexterous-Manipulation-from-Human-Grasp-Affordance
 
 # The provoided package version in the yml is our testing environment, you do not need to follow the version of each python package precisely to run this code.
-conda env create -f environment.yml 
+conda env create -f environment.yaml 
 conda activate ilad
 pip install -e mj_envs/
 pip install -e mjrl/
