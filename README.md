@@ -4,7 +4,7 @@
 -----
 
 [Learning Generalizable Dexterous Manipulation from Human Grasp Affordance](https://kristery.github.io/ILAD/),Yueh-Hua Wu*, 
-Jiashun Wang*, Xiaolong Wang, ECCV 2022.
+Jiashun Wang*, Xiaolong Wang, CoRL 2022.
 
 ILAD is a novel pipeline for learning dexterous manipulation from human affordance.
 This repo contains the **imitation learning** code for ILAD.
